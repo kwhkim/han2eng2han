@@ -1,0 +1,9 @@
+Name: Han2Eng2Han
+Description: Change the Highlighted part to Hangul keystrokes or English keystrokes
+Binding: change_keystrokes
+Interactive: false
+
+Name: change_case
+Description: Change the alphabet case of the Highlighted part
+Binding: change_case
+Interactive: false
