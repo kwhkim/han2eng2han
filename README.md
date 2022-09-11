@@ -6,6 +6,12 @@
   - 한타로 잘못친 영타를 한타로 수정하기
   - CAPS LOCK을 누른 채 잘못친 영타 수정하기
   
+## dependencies
+
+* `rstudioapi`
+* `stringi`
+* `KoNLP`
+  
 ## Addsin 등록 확인
 
 R studio 상단을 보면 Addins이 있다.
