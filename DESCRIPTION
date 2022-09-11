@@ -4,8 +4,7 @@ Title: Correct errorneous keystrokes resulting from Hangul/English input mode
 Version: 0.1.0
 Author: kwhkim
 Maintainer: The package maintainer <kwonhyun.kim@gmail.com>
-Description: "안녕?"을 영어 입력 모드에서 "dkssud?"으로 입력했을 때 이를 한글로 바꿔준다.
-한글을 영어로 바꿀 수도 있다. 영어의 Caps Lock을 혼동했을 떄를 위해 "dkksud?" <-> "DKKSUD?" 변환도 가능하다.
+Description: If you typed "dkssud?" instead of  "AhnNyung?"(Korean meaning hello?), you can use this package to change English keystrokes to Korean, or Korean to English. Switching cases of English letters is also possible.
 License: Yet to be announced
 Encoding: UTF-8
 LazyData: true
