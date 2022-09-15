@@ -6,6 +6,12 @@
   - 한타로 잘못친 영타를 한타로 수정하기
   - CAPS LOCK을 누른 채 잘못친 영타 수정하기
   
+## 설치 방법
+
+```
+remotes::install_github('kwhkim/han2eng2han')
+```
+  
 ## dependencies
 
 * `rstudioapi`
