@@ -40,7 +40,15 @@ R studio 상단을 보면 Addins이 있다.
 
 ![Plot title. ](README_insertimage_4.png)
 
+## 다음 단계? 프로젝트
 
+* Visual Studio extension 만들기
+* 자음, 모음의 순서가 바뀌거나, 받침 자음의 순서가 바뀐 경우에도 자동으로 수정하기 
+* "LG전자"처럼 영어가 같이 포함된 경우에는 두 번 변환했을 때 영어가 보존되도록 하기기
 
+## Version History
 
+* Ver 0.3 
+  - `KoNLP::HangulAutomata("ㅎㅑㅅㅗㅕㅠ.ㅊㅐㅡ/ㅏㅡㅐㅕㅜㅣㅔ/ㅜㄸㅜㄸㄲ", isForceConv = TRUE, isKeystroke = FALSE)`에 대해 `Error in .jcall(KoHangulAuto, "S", "convert", input): java.lang.NullPointerException`이 발생하는 문제를 `tryCatch()`로 해결
+    - `KoNLP::HangulAutomata("ㅎㅑ", isForceConv = TRUE, isKeystroke = FALSE)`의 결과와 비교. 
 
