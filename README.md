@@ -40,11 +40,18 @@ R studio 상단을 보면 Addins이 있다.
 
 ![Plot title. ](README_insertimage_4.png)
 
-## 다음 단계? 프로젝트
+## ToDos & 다음 프로젝트
 
+* `KoNLP` 없이도 실행되도록 하기 
+  - `KoNLP`는 현재 CRAN에 등록되어 있지 않고, 초심자가 설치하기 힘들 수도 있으므로
 * Visual Studio extension 만들기
 * 자음, 모음의 순서가 바뀌거나, 받침 자음의 순서가 바뀐 경우에도 자동으로 수정하기 
-* "LG전자"처럼 영어가 같이 포함된 경우에는 두 번 변환했을 때 영어가 보존되도록 하기기
+* "LG전자"처럼 영어가 같이 포함된 경우에는 두 번 변환했을 때 영어가 보존되도록 하기(근데 그냥 CTRL+Z를 해도 되지 않을까?)
+
+## 개발기
+
+* [영어로 잘못 쓴 한글과 한글로 잘못 쓴 영어 1](http://ds.sumeun.org/?p=2621)
+* [영어로 잘못 쓴 한글과 한글로 잘못 쓴 영어 2](http://ds.sumeun.org/?p=2624)
 
 ## Version History
 
