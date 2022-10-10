@@ -59,6 +59,10 @@ R studio 상단을 보면 Addins이 있다.
 
 ## Version History
 
+* Ver 0.4 
+  - 한글과 영어가 섞여 있을 때 한글은 영어로, 영어는 한글로 동시에 바꾼다.
+    - 예) SK 하이닉스 -> 나 gkdlslrtm -> sk 하이닉스
+
 * Ver 0.3 
   - `KoNLP::HangulAutomata("ㅎㅑㅅㅗㅕㅠ.ㅊㅐㅡ/ㅏㅡㅐㅕㅜㅣㅔ/ㅜㄸㅜㄸㄲ", isForceConv = TRUE, isKeystroke = FALSE)`에 대해 `Error in .jcall(KoHangulAuto, "S", "convert", input): java.lang.NullPointerException`이 발생하는 문제를 `tryCatch()`로 해결
     - `KoNLP::HangulAutomata("ㅎㅑ", isForceConv = TRUE, isKeystroke = FALSE)`의 결과와 비교. 
