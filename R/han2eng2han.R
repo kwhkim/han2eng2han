@@ -17,6 +17,7 @@
 #f2(lns) 0.0983 0.0985 0.09961 0.09865 0.100 0.1059    10
 
 library(data.table)
+library(stringi)
 
 createFunc_case_switch = function() {
   id <- paste0(
@@ -108,7 +109,7 @@ createHAutomata2 = function() {
 
   data.table::setkey(dt_eng_han, key_eng)
   #input_eng = "github.com/kmounlp/nEnER"
-  HAutomata2 = function(input_eng) {
+  HAutomata2 = function(input_eng, debug = FALSE) {
     input_eng_dt = data.table::data.table(key_eng = unlist(strsplit(input_eng, "")))
 
     #output_han = dt_eng_han[input_eng_dt, on='key_eng']
@@ -128,7 +129,10 @@ createHAutomata2 = function() {
     KoNLP::HangulAutomata(stringi::stri_trans_nfkc(han),
                           isForceConv = TRUE, isKeystroke = FALSE)
 
-    cat('* han :', han, '\n')
+    if (debug) {
+      cat('* han :', han, '\n')
+    }
+
 
     tryCatch(KoNLP::HangulAutomata(han,
                               isForceConv = TRUE, isKeystroke = FALSE),
@@ -196,24 +200,49 @@ change_keystrokes <- function() {
 
   if (!is.null(ctx)) {
     selected_text <- ctx$selection[[1]]$text
-    cat("* selected :", selected_text, "\n")
-    n_han = stringi::stri_count_regex(selected_text, "\\p{Hangul}")
-    n_eng = stringi::stri_count_regex(selected_text, "[A-Za-z]")
-    cat("  - n_han:", n_han, "\n")
-    cat("  - n_eng:", n_eng, "\n")
-    if (n_han > n_eng) {
-      selected_text = han_to_eng(selected_text)
-    } else {
-      selected_text2 = eng_to_han(selected_text)
-      n_eng = stringi::stri_count_regex(selected_text2, "[A-Za-z]")
-      if (n_eng > 0) {
-        selected_text =eng_to_han(to_strokes(selected_text))
-      } else {
-        selected_text = selected_text2
-      }
+    # cat("* selected :", selected_text, "\n")
 
+    # n_han = stringi::stri_count_regex(selected_text, "\\p{Hangul}")
+    # n_eng = stringi::stri_count_regex(selected_text, "[A-Za-z]")
+    # cat("  - n_han:", n_han, "\n")
+    # cat("  - n_eng:", n_eng, "\n")
+    # if (n_han > n_eng) {
+    #   selected_text = han_to_eng(selected_text)
+    # } else {
+    #   selected_text2 = eng_to_han(selected_text)
+    #   n_eng = stringi::stri_count_regex(selected_text2, "[A-Za-z]")
+    #   if (n_eng > 0) {
+    #     selected_text =eng_to_han(to_strokes(selected_text))
+    #   } else {
+    #     selected_text = selected_text2
+    #   }
+
+
+    x_split =
+      unlist(
+        stringi::stri_split_regex(
+          selected_text,
+          "(?<=\\p{Hangul})(?=\\P{Hangul})|(?<=\\P{Hangul})(?=\\p{Hangul})"))
+    cat(x_split)
+
+    b_hangul = sapply(x_split, stringi::stri_detect_regex, pattern = '\\p{Hangul}')
+
+    for (i in seq_along(x_split)) {
+      if (b_hangul[i]) {
+        x_split[i] = han_to_eng(x_split[i])
+        } else {
+        #x_split[i] = eng_to_han(x_split[i])
+        x2 = eng_to_han(x_split[i])
+        n_eng = stringi::stri_count_regex(x2, "[A-Za-z]")
+        if (n_eng > 0) {
+          x_split[i] =eng_to_han(to_strokes(x_split[i])) }
+        else {
+          x_split[i] = x2
+        }
+      }
     }
 
+    selected_text = paste0(x_split, collapse = '')
     rstudioapi::modifyRange(ctx$selection[[1]]$range, selected_text)
     #print(str(x))
     #print(x)
