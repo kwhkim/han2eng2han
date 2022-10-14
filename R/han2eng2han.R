@@ -16,8 +16,7 @@
 #f1(lns) 0.0981 0.0984 0.15393 0.09905 0.101 0.6317    10
 #f2(lns) 0.0983 0.0985 0.09961 0.09865 0.100 0.1059    10
 
-library(data.table)
-library(stringi)
+#library(data.table) # Using Depends in DESCRIPTION FILE
 
 createFunc_case_switch = function() {
   id <- paste0(

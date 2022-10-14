@@ -8,3 +8,4 @@ Description: If you typed "dkssud?" instead of  "AhnNyung?"(Korean meaning hello
 License: Yet to be announced
 Encoding: UTF-8
 LazyData: true
+Depends: data.table

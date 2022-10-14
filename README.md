@@ -59,6 +59,12 @@ R studio 상단을 보면 Addins이 있다.
 
 ## Version History
 
+* Ver 0.5
+  - `library()`를 제거하고, DESCRIPTION 파일의 Depends:에 `data.table`을 추가했다. 
+  - 관련 자료
+    - [SO: Using data.table package inside my own package](https://stackoverflow.com/questions/10527072/using-data-table-package-inside-my-own-package)
+    - [Why library() or require() should not be used in a R package](https://stackoverflow.com/questions/64737686/why-library-or-require-should-not-be-used-in-a-r-package)
+
 * Ver 0.4 
   - 한글과 영어가 섞여 있을 때 한글은 영어로, 영어는 한글로 동시에 바꾼다.
     - 예) SK 하이닉스 -> 나 gkdlslrtm -> sk 하이닉스
